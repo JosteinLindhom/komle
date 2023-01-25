@@ -66,7 +66,7 @@ class StoreException(Exception):
         self.reply = reply
 
 def _parse_reply(reply):
-    if reply.Result == 1:
+    if reply.Result == 1 or reply.Result == 2:
         return witsml.CreateFromDocument(reply.XMLout)
     else:
         raise StoreException(reply)
